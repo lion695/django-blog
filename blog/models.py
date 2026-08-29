@@ -18,13 +18,27 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     excerpt = models.TextField(blank=True, null=True)
 
+    # Added Meta and __str__ for Post
+    class Meta:
+        ordering = ["-created_on"]
+
+    def __str__(self):
+        return f"{self.title} | written by {self.author}"
+
 class Comment(models.Model):
     """
     Stores a single comment entry related to :model:`blog.Post` 
     and :model:`auth.User`.
     """
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="commenter")
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comments_author")
     body = models.TextField()
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
+
+    # Added Meta and __str__ for Comment
+    class Meta:
+        ordering = ["created_on"]
+
+    def __str__(self):
+        return f"Comment {self.body} by {self.author}"
