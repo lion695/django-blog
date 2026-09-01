@@ -18,7 +18,8 @@
                                     <p class="author">Author: {{ post.author }}</p>
                                 </div>
                             </div>
-                            <a href="#" class="post-link">
+                            <!-- Updated href placeholder to use dynamic url and post slug -->
+                            <a href="{% url 'post_detail' post.slug %}" class="post-link">
                                 <h2 class="card-title">{{ post.title }}</h2>
                             </a>
                             <p class="card-text">{{ post.excerpt }}</p>
