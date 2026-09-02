@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <!-- Profile Column -->
+        <div class="col-md-4 text-center">
+            <!-- Hardcoded default placeholder image linked via static tags -->
+            <img src="{% static 'images/default.jpg' %}" alt="Placeholder Profile" class="img-fluid rounded-circle mb-3" style="max-width: 250px;">
+        </div>
+        
+        <!-- Text Column -->
+        <div class="col-md-8">
+            {% if about %}
+                <h1 class="mb-4">{{ about.title }}</h1>
+                <div class="about-content">
+                    {{ about.content | safe }}
+                </div>
+            {% else %}
+                <h1>About Me</h1>
+                <p>Welcome! Content is currently being drafted by the administrator. Check back soon!</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

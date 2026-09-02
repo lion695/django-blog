@@ -1,6 +1,7 @@
 {% load static %}
 
 {% url 'home' as home_url %}
+{% url 'about' as about_url %}
 
 <!DOCTYPE html>
 <html class="h-100" lang="en">
@@ -37,19 +38,25 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
-                <div class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- Changed outer div to a standard ul block matching the solution blueprint format -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <!-- Changed href="#" to href="{% url 'home' %}" -->
                         <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page"
                             href="{% url 'home' %}">Home</a>
                     </li>
-                </div>
+                    <li class="nav-item">
+                        <!-- Added your brand new About navigation link block -->
+                        <a class="nav-link {% if request.path == about_url %}active{% endif %}" aria-current="page"
+                            href="{% url 'about' %}">About</a>
+                    </li>
+                </ul>
                 <span class="navbar-text text-muted">
                     adventures of a software developer
                 </span>
             </div>
         </div>
     </nav>
+
 
     <main class="flex-shrink-0 main-bg">
 
