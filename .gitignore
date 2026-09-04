@@ -8,3 +8,9 @@ node_modules/
 .github/
 cloudinary_python.txt
 blog/fixtures/
+venv/
+.venv/
+*.pyc
+__pycache__/
+db.sqlite3
+env.py
