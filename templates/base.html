@@ -80,6 +80,19 @@
 
 
     <main class="flex-shrink-0 main-bg">
+        <!-- Personalized Authentication Message Alert Starts Here -->
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col text-end text-muted">
+                    {% if user.is_authenticated %}
+                    <p>You are logged in as **{{ user.username }}**</p>
+                    {% else %}
+                    <p>You are not logged in</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <!-- Personalized Authentication Message Alert Ends Here -->
 
         {% block content %}
         <!-- Content Goes here -->
